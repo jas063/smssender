@@ -1,0 +1,66 @@
+{%  extends 'smssender/base.html' %}
+
+{%  block content %}
+
+<div id="content" class="col-lg-10 col-sm-10">
+            <!-- content starts -->
+            <div>
+    <ul class="breadcrumb">
+        <li>
+            <a href="/index">Home</a>
+        </li>
+        <li>
+            <a href="/notifications">Notifications</a>
+        </li>
+    </ul>
+</div>
+
+<div class="row">
+    <div class="box col-md-12">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <h2><i class="glyphicon glyphicon-edit"></i>Notifications</h2>
+
+
+            </div>
+
+
+                    
+                   <div class="box-content">
+
+    <table class="table table-striped table-bordered bootstrap-datatable datatable responsive">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Mobile</th>
+        <th>Message</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Status</th>
+</tr>
+    </thead>
+        <tbody>
+        {%  for user in users %}
+     <tr>
+         <td>{{ user.name }}</td>
+     <td>{{ user.sentTo }}</td>
+     <td>{{ user.message }}</td>
+     <td>{{ user.date }}</td>
+         <td>{{ user.time }}</td>
+     <td>Sent</td>
+
+     </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+                 </div>
+
+
+                             </div>
+                </div>
+
+    </div><!--/#content.col-md-0-->
+</div><!--/fluid-row-->
+
+{%  endblock content %}

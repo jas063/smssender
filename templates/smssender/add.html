@@ -1,0 +1,56 @@
+{%  extends "smssender/base.html" %}
+
+{%  block content %}
+
+        <div id="content" class="col-lg-10 col-sm-10">
+            <!-- content starts -->
+            <div>
+    <ul class="breadcrumb">
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li>
+            <a href="#">Add New</a>
+        </li>
+    </ul>
+</div>
+
+<div class="row">
+    <div class="box col-md-12">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <h2><i class="glyphicon glyphicon-edit"></i>Add New</h2>
+<br><br>
+             <form style="margin-top: 20px" method="post" id="add">
+                 {% csrf_token %}
+                 {{ form }}
+                       <div class="form-group has-success col-md-4">
+                    <label class="control-label" for="fname">Full Name</label>
+                    <input type="text" class="form-control" id="fname" name="fname"><br>
+                    <label class="control-label" for="mobile">Mobile</label>
+                    <input type="text" pattern="[789][0-9]{9}" id="mobile" name="mobile"  autocomplete="off"  maxlength="10" required class="form-control" ><br>
+                    <label class="control-label" for="email">E-mail</label>
+                    <input type="email" class="form-control" id="email" name="email"><br>
+                    <label class="control-label" for="dob">DOB</label>
+                    <input type="date" class="form-control" id="dob" name="dob"><br>
+                    <label class="control-label" for="marriageaniversary">Marriage Anniversary</label>
+                    <input type="date" class="form-control" id="marriageaniversary" name="marriageaniversary"><br>
+                    <label class="control-label" for="remarks">Remarks</label>
+                    <input type="text" class="form-control" id="remarks" name="remarks"><br>
+                    <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                 </div>
+
+                    </form>
+            </div>
+
+
+
+
+                             </div>
+                </div>
+
+    </div><!--/#content.col-md-0-->
+</div><!--/fluid-row-->
+
+
+{%  endblock content %}

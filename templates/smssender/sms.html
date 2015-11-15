@@ -1,0 +1,57 @@
+{%  extends "smssender/base.html" %}
+
+{%  block content %}
+<div id="content" class="col-lg-10 col-sm-10">
+            <!-- content starts -->
+            <div>
+    <ul class="breadcrumb">
+        <li>
+            <a href="/index">Home</a>
+        </li>
+        <li>
+            <a href="/sms">SMS Sender</a>
+        </li>
+    </ul>
+</div>
+
+<div class="row">
+    <div class="box col-md-12">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <h2><i class="glyphicon glyphicon-edit"></i>SMS Sender</h2>
+
+   <form style="margin-top: 50px" method="post" id="send">
+       {% csrf_token %}
+                       <div class="form-group has-success col-md-4">
+                           <label class="control-label" for="name">Receiver's Name</label>
+                   <input type="text"  id="name" name="name" maxlength="25" required class="form-control" ><br>
+
+                    <label class="control-label" for="mobile">Receiver's Number</label>
+                   <input type="text" pattern="[789][0-9]{9}" id="mobile" name="mobile" maxlength="10" required class="form-control" ><br>
+
+                    <br>
+
+                    <textarea name="message"  class="form-control"  rows="10" cols="50" placeholder="Enter your message here..." ></textarea>
+
+
+        <br>
+                    <button type="submit" class="btn btn-primary btn-md" style="float:right">Send</button>
+                 </div>
+
+                    </form>
+            </div>
+
+
+
+
+                             </div>
+                </div>
+
+    </div><!--/#content.col-md-0-->
+</div><!--/fluid-row-->
+<script>
+if ("{{ msg }}" != "") {
+    alert("{{ msg }}");
+}
+</script>
+{%  endblock content %}

@@ -1,0 +1,103 @@
+{%  extends "smssender/base.html" %}
+
+{%  block content %}
+
+        <div id="content" class="col-lg-10 col-sm-10">
+            <!-- content starts -->
+            <div>
+    <ul class="breadcrumb">
+        <li>
+            <a href="/index">Home</a>
+        </li>
+        <li>
+            <a href="#">Edit</a>
+        </li>
+    </ul>
+</div>
+
+<div class="row">
+    <div class="box col-md-12">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <h2><i class="glyphicon glyphicon-edit"></i>Edit</h2>
+<br><br>
+
+             <form style="margin-top: 20px" method="post" id="add">
+                 {% csrf_token %}
+                 {{ form }}
+                       <div class="form-group has-success col-md-4">
+                    <label class="control-label" for="fname">Full Name</label>
+                    <input type="text" class="form-control" id="fname" name="fname" value={{ user.fname }}><br>
+                    <label class="control-label" for="mobile">Mobile</label>
+                    <input type="text" pattern="[789][0-9]{9}" id="mobile" name="mobile"  autocomplete="off"  maxlength="10" required class="form-control" value={{ user.mobile }} ><br>
+                    <label class="control-label" for="email">E-mail</label>
+                    <input type="email" class="form-control" id="email" name="email" value={{ user.email }}><br>
+                       {%  if  user.dob.day  < 10 %}
+                               {% if user.dob.month  < 10 %}
+                                   <label class="control-label" for="dob">DOB</label>
+                    <input type="date" class="form-control" id="dob" name="dob" value="{{ user.dob.year }}-0{{ user.dob.month }}-0{{ user.dob.day }}"><br>
+
+
+                               {%  else %}
+                               <label class="control-label" for="dob">DOB</label>
+                    <input type="date" class="form-control" id="dob" name="dob" value="{{ user.dob.year }}-{{ user.dob.month }}-0{{ user.dob.day }}"><br>
+                           {%  endif %}
+                           {% elif  user.dob.month  < 10 %}
+                               <label class="control-label" for="dob">DOB</label>
+                    <input type="date" class="form-control" id="dob" name="dob" value="{{ user.dob.year }}-0{{ user.dob.month }}-{{ user.dob.day }}"><br>
+                          {%  else %}
+                               <label class="control-label" for="dob">DOB</label>
+                    <input type="date" class="form-control" id="dob" name="dob" value="{{ user.dob.year }}-{{ user.dob.month }}-{{ user.dob.day }}"><br>
+
+                           {% endif %}
+                       {%  if  user.marriageaniversary.day  < 10 %}
+                               {% if user.marriageaniversary.month  < 10 %}
+                    <label class="control-label" for="marriageaniversary">Marriage Anniversary</label>
+                     <input type="date" class="form-control" id="marriageaniversary" name="marriageaniversary" value="{{ user.marriageaniversary.year }}-0{{ user.marriageaniversary.month }}-0{{ user.marriageaniversary.day }}"><br>
+
+
+                               {%  else %}
+                    <label class="control-label" for="marriageaniversary">Marriage Anniversary</label>
+                     <input type="date" class="form-control" id="marriageaniversary" name="marriageaniversary" value="{{ user.marriageaniversary.year }}-{{ user.marriageaniversary.month }}-0{{ user.marriageaniversary.day }}"><br>
+                           {%  endif %}
+                           {% elif  user.marriageaniversary.month  < 10 %}
+                    <label class="control-label" for="marriageaniversary">Marriage Anniversary</label>
+                     <input type="date" class="form-control" id="marriageaniversary" name="marriageaniversary" value="{{ user.marriageaniversary.year }}-0{{ user.marriageaniversary.month }}-{{ user.marriageaniversary.day }}"><br>
+                          {%  else %}
+                    <label class="control-label" for="marriageaniversary">Marriage Anniversary</label>
+                     <input type="date" class="form-control" id="marriageaniversary" name="marriageaniversary" value="{{ user.marriageaniversary.year }}-{{ user.marriageaniversary.month }}-{{ user.marriageaniversary.day }}"><br>
+
+                           {% endif %}
+                    <label class="control-label" for="remarks">Remarks</label>
+                    <input type="text" class="form-control" id="remarks" name="remarks" value={{ user.remarks }}><br>
+                    <button type="submit" class="btn btn-primary btn-sm" id="submit">Submit</button>
+<script>
+
+$(document).ready(function(){
+      $("#submit").click(function(){
+var $myForm = $('#add');
+if ($myForm[0].checkValidity()) {
+
+alert("Information has been successfully updated.");
+ }
+
+    });
+    });
+</script>
+
+                 </div>
+
+                    </form>
+            </div>
+
+
+
+
+                             </div>
+                </div>
+
+    </div><!--/#content.col-md-0-->
+</div><!--/fluid-row-->
+
+
+{%  endblock content %}

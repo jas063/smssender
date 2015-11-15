@@ -1,0 +1,45 @@
+{%  extends 'smssender/base.html' %}
+
+{% block content %}
+     <div id="content" class="col-lg-10 col-sm-10">
+            <!-- content starts -->
+            <div>
+    <ul class="breadcrumb">
+        <li>
+            <a href="/index">Home</a>
+        </li>
+        <li>
+            <a href="/api">Key</a>
+        </li>
+    </ul>
+</div>
+
+<div class="row">
+    <div class="box col-md-12">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <h2><i class="glyphicon glyphicon-edit"></i>API Key</h2>
+
+
+            </div>
+
+
+
+                   <form style="margin-top: 20px" method="post" id="url">
+                       <div class="form-group has-success col-md-4">
+                    <label class="control-label" for="inputSuccess1">Enter the key</label>
+                    <input type="text" class="form-control" id="url" name="key">
+
+
+        <br>
+                    <button type="submit" class="btn btn-primary btn-sm">Submitt</button>
+                 </div>
+
+                    </form>
+                             </div>
+                </div>
+
+    </div><!--/#content.col-md-0-->
+</div><!--/fluid-row-->
+
+{% endblock content %}
