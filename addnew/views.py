@@ -11,6 +11,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 
+
+
 def login_user(request):
     logout(request)
     username = password = ''
@@ -25,17 +27,19 @@ def login_user(request):
                 return HttpResponseRedirect('/index')
     return render_to_response('smssender/login.html', context_instance=RequestContext(request))
 
-@login_required(login_url='/login/')
+
 
 def logout_user(request):
-    logout(request)
-    return render_to_response('smssender/login.html', context_instance=RequestContext(request))
 
+    return redirect(login_user)
+
+@login_required(login_url='/login/')
 def indexview(request):
 
     now=datetime.datetime.now()
     date=str(now.date())
     time=str(now.hour)+":"+str(now.minute)+":"+str(now.second)
+    model1= Message.objects.all()
 
     if request.method == 'POST':
 
@@ -62,7 +66,7 @@ def indexview(request):
 
         form1=MessageForm()
         users=add.objects.all()
-        context_data={'users':users,'form1':form1}
+        context_data={'users':users,'form1':form1,'model1':model1}
         return render(request,'smssender/index.html',context_data)
 
 def delete(request, id):
@@ -119,6 +123,10 @@ def smsview(request):
 def apikeyview(request):
 
     return render(request,'smssender/key.html')
+
+def scheduler(request):
+
+    return render(request,'smssender/scheduler.html')
 
 
 def notifyview(request):

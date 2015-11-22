@@ -1,0 +1,66 @@
+{%  extends "smssender/base.html" %}
+
+{%  block content %}
+
+        <div id="content" class="col-lg-10 col-sm-10">
+            <!-- content starts -->
+            <div>
+    <ul class="breadcrumb">
+        <li>
+            <a href="/index">Home</a>
+        </li>
+        <li>
+            <a href="/scheduler">SMS Scheduler</a>
+        </li>
+    </ul>
+</div>
+
+<div class="row">
+    <div class="box col-md-12">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <h2><i class="glyphicon glyphicon-edit"></i>List of Festivals</h2>
+<br><br><br><br>
+<form action="/index">
+    <div style="width: 30%">
+<select>
+  <option value="volvo">Diwali</option>
+    <option value="audi">New Year</option>
+    <option value="audi">Makar Sankranti</option>
+  <option value="saab">Dussehra</option>
+    <option value="audi">Vasant Panchmi</option>
+  <option value="opel">Christmas</option>
+  <option value="audi">New Year</option>
+    <option value="audi">Republic Day</option>
+    <option value="audi">Holi</option>
+    <option value="audi">Independence Day</option>
+</select>
+<br><br>
+                <label class="control-label" for="datefest">Date</label>
+                <input style="width: 55%" type="date" class="form-control" id="datefest" name="datefest"><br>
+                <textarea name="message"  class="form-control"  rows="10" cols="50" placeholder="Enter your message here..." required></textarea>
+                 <br><button type="submit" id="save" class="btn btn-primary btn-sm">Save</button>
+        </div>
+            </form>
+
+
+
+
+                             </div>
+                </div>
+
+    </div><!--/#content.col-md-0-->
+</div><!--/fluid-row-->
+            </div>
+
+<script>
+$(document).ready(function(){
+    $("#save").click(function(){
+        alert("Successfully Saved")
+    });
+
+});
+
+</script>
+
+{%  endblock content %}

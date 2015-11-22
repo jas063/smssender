@@ -7,10 +7,10 @@
             <div>
     <ul class="breadcrumb">
         <li>
-            <a href="#">Home</a>
+            <a href="/index">Home</a>
         </li>
         <li>
-            <a href="#">Dashboard</a>
+            <a href="/index">Dashboard</a>
         </li>
          <li style="float:right">
             <a class="btn btn-primary btn-xs" href="/adduser">
@@ -21,13 +21,13 @@
         </li>
     </ul>
 </div>
-<div class=" row">
+<div class=" row" style="margin-left: 25%">
     <div class="col-md-3 col-sm-3 col-xs-6">
         <a data-toggle="tooltip"  class="well top-block" href="#">
             <i class="glyphicon glyphicon-user blue"></i>
 
             <div>Total Contacts</div>
-            <div>200</div>
+            <div>{{ users.count }}</div>
                    </a>
     </div>
 
@@ -35,13 +35,13 @@
         <a data-toggle="tooltip" class="well top-block" href="#">
             <i class="glyphicon glyphicon-gift yellow"></i>
 
-            <div>Friends Contacts</div>
-            <div>50</div>
+            <div>Total Messeges Sent</div>
+            <div>{{ model1.count }}</div>
 
         </a>
     </div>
 
-    <div class="col-md-3 col-sm-3 col-xs-6">
+ <!--   <div class="col-md-3 col-sm-3 col-xs-6">
         <a data-toggle="tooltip" class="well top-block" href="#">
             <i class="glyphicon glyphicon-home green"></i>
 
@@ -59,7 +59,7 @@
             <div>125</div>
 
         </a>
-    </div>
+    </div>-->
 </div>
     <div class="box-content">
 

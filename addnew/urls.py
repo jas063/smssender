@@ -12,5 +12,6 @@ urlpatterns=[url(r'^adduser/$',views.adduserview,name="add_user"),
              url(r'^login/$', views.login_user),
              url(r'^passchange/(?P<user>\w+)/$', views.changepassword),
              url(r'^logout/$', views.logout_user),
+             url(r'^scheduler/$', views.scheduler),
 
 ]
