@@ -2,7 +2,8 @@ __author__ = 'Jasmeet'
 from django.conf.urls import url
 from addnew import views
 
-urlpatterns=[url(r'^adduser/$',views.adduserview,name="add_user"),
+urlpatterns=[url(r'^$',views.login_user),
+             url(r'^adduser/$',views.adduserview,name="add_user"),
              url(r'^index/$',views.indexview,name="index_view"),
              url(r'^delete/(?P<id>\d+)/$', views.delete, name='delete'),
              url(r'^sms/$',views.smsview,name="sms_view"),
